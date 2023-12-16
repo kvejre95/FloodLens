@@ -2,9 +2,7 @@ import requests
 from openai import OpenAI
 import json
 
-client = OpenAI(api_key='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')
-
-# export OPENAI_API_KEY='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'
+client = OpenAI(api_key=YOUR_API_KEY)
 
 tools = [
     {
