@@ -111,7 +111,7 @@ def index():
 @app.route('/download_image', methods=["GET"])
 def download_image():
     config = SHConfig()
-    config.instance_id = "93aef06f-6ecd-4b93-b55c-c5492d8a095f"
+    config.instance_id = SH_INSTANCE_ID
 
     # Retrieve latitude and longitude from query parameters
     latitude = float(request.args.get('latitude', 41.9028))
