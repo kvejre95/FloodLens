@@ -1,0 +1,37 @@
+plugin:
+  id: "satellite-image-fetcher"
+  title: "Satellite Image Fetcher"
+  description: "Fetches and displays satellite images based on given latitude and longitude coordinates."
+  version: "1.0"
+  type: "ai.openai.com/v1"
+  capabilities:
+    - "message-rewrite"
+
+config:
+  url: "https://chatgptplugin-vejrekshitij1.replit.app/"  
+  
+endpoints:
+  - id: "fetch-satellite-image"
+    description: "Fetches a satellite image based on provided latitude and longitude."
+    path: "/download_image"
+    method: "GET"
+    input:
+      type: "object"
+      properties:
+        latitude:
+          type: "number"
+          description: "Latitude of the desired location."
+        longitude:
+          type: "number"
+          description: "Longitude of the desired location."
+    output:
+      type: "object"
+      properties:
+        imageUrl:
+          type: "string"
+          description: "URL of the fetched satellite image."
+
+rewrites:
+  - pattern: "Show me a satellite image of (?P<latitude>-?\d+(\.\d+)?), (?P<longitude>-?\d+(\.\d+)?)"
+    endpoint: "fetch-satellite-image"
+    rewrite: "Fetching satellite image for coordinates {{latitude}}, {{longitude}}"

@@ -1,0 +1,40 @@
+{
+  "plugin": {
+    "id": "satellite-image-fetcher",
+    "title": "Satellite Image Fetcher",
+    "description": "This plugin fetches satellite images based on specified latitude and longitude coordinates.",
+    "version": "1.0"
+  },
+  "endpoints": [
+    {
+      "id": "fetch-satellite-image",
+      "title": "Fetch Satellite Image",
+      "description": "This endpoint fetches a satellite image for the provided latitude and longitude coordinates.",
+      "uri": "/download_image",
+      "method": "GET",
+      "input": {
+        "type": "object",
+        "properties": {
+          "latitude": {
+            "type": "number",
+            "description": "Latitude of the location for which the satellite image is to be fetched."
+          },
+          "longitude": {
+            "type": "number",
+            "description": "Longitude of the location for which the satellite image is to be fetched."
+          }
+        },
+        "required": ["latitude", "longitude"]
+      },
+      "output": {
+        "type": "object",
+        "properties": {
+          "imageUrl": {
+            "type": "string",
+            "description": "The URL of the fetched satellite image."
+          }
+        }
+      }
+    }
+  ]
+}
