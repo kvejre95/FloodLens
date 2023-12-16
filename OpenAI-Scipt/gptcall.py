@@ -2,6 +2,7 @@ import requests
 from openai import OpenAI
 import json
 
+YOUR_API_KEY ="Your OpenAI Key"
 client = OpenAI(api_key=YOUR_API_KEY)
 
 tools = [
